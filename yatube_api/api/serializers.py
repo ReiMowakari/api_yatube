@@ -6,7 +6,6 @@ from posts.models import Post, Group, Comment
 
 class PostSerializer(ModelSerializer):
     """Сериалайзер для модели Post."""
-    # Переопределяем поле автора поста.
     author = SlugRelatedField(slug_field='username', read_only=True)
 
     class Meta:
@@ -28,9 +27,7 @@ class GroupSerializer(ModelSerializer):
 
 class CommentSerializer(ModelSerializer):
     """Сериалайзер для модели Group."""
-    # Переопределяем поле автора поста.
     author = SlugRelatedField(slug_field='username', read_only=True)
-    # Переопределяем поле поста.
     post = SlugRelatedField(slug_field='id', read_only=True)
 
     class Meta:
