@@ -57,7 +57,6 @@ class CommentViewSet(AuthorizedModelMixin):
 
     # Переопределяем метод для автоматического добавления автора поста.
     def perform_create(self, serializer):
-        post = get_object_or_404(Post, pk=self.kwargs.get('post_id'))
         serializer.save(
             author=self.request.user,
             post=self.get_post())
